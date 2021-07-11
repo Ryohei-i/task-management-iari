@@ -1,0 +1,46 @@
+<div class="wrapper">
+  <div class="task-calender">
+    <%= month_calendar tasks: @tasks do |date, tasks| %>
+      <%= date.day %>
+      <% rate = 0.0 %>
+      <% c = 0.0 %>
+      <% @tasks.each do |task| %>
+        <% if date.day == task.start_time.day && current_user.name == task.user.name%>
+          <li>
+            <%= link_to task.name, task %>
+          </li>
+          <% c = c + 1 %>
+          <% if task.status == 1 %>
+            <% rate = rate + 1 %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <% rate = (rate / c) * 100  %>
+      <% if rate.nan? %>
+        <% rate = 0.0 %>
+
+      <% end %>
+      <% if rate != 0 || c != 0 %>
+        <p>達成率<%= rate.to_i %>％</p>
+      <% end %>
+    <% end %>
+
+    <%= link_to '一覧へ戻る', tasks_path, class: "cp_link" %>
+  </div>
+
+
+
+  <ul class="bg-bubbles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+
+</div>

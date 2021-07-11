@@ -1,0 +1,46 @@
+<div class="wrapper">
+
+  <div class="add">
+    <h1>タスクの追加</h1>
+
+    <%= form_for(@task) do |f| %>
+
+    <ul>
+      <li>
+        <%= f.label :name, 'タスク', class: 'edit-label' %>
+        <%= f.text_field :name, class: 'edit-form' %>
+      </li>
+      <li>
+        <%= f.label :description, '詳細', class: 'edit-label' %>
+        <%= f.text_area :description, class: 'edit-form' %>
+      </li>
+      <li>
+        <%= f.label :start_time, class: 'edit-label' %>
+        <%= f.date_field :start_time, class: 'edit-form' %>
+      </li>
+      <li>
+        <div class="submit-block">
+          <%= f.submit '追加', class: 'button' %>
+        </div>
+      </li>
+    </ul>
+
+    <% end %>
+
+    <%= link_to '一覧に戻る', tasks_path, class: 'cp_link' %>
+  </div>
+
+  <ul class="bg-bubbles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+  </ul>
+
+</div>

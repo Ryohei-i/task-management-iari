@@ -1,0 +1,268 @@
+// Place all the styles related to the tasks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+$color: #2194E0;
+
+html {
+  height: 100%;
+
+  #tasks, #profiles {
+    background-color: aquamarine;
+    height: 100%;
+    color: #111111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .top{
+      width: 60%;
+      height: 600px;
+      z-index: 5;
+
+      .menu {
+        height: 20%;
+
+        h1 {
+          font-size: 50px;
+          text-align: center;
+        }
+
+        .add-button {
+          // float: right;
+          width: 20%;
+          margin: 0 0 10px auto;
+
+          p {
+            text-align: center;
+          }
+          a {
+            color: white;
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 5px;
+          }
+
+          .cp_link {
+            padding: 0.1em 0.3em;
+            position: relative;
+            display: inline-block;
+            transition: .3s;
+            color: white;
+            &::after {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              content: '';
+              width: 0;
+              height: 1px;
+              background-color: white;
+              transition: .3s;
+            }
+            &:hover::after {
+              width: 100%;
+            }
+          }
+
+
+        }
+      }
+
+      .main {
+      background: rgba($color: #fff, $alpha: 0.5);
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px silver;
+      padding: 0.5em 0.5em 0.5em 2em;
+      height: 100%;
+      overflow: scroll;
+      overflow:  hidden visible;
+
+        ol {
+          display: block;
+
+
+          li {
+            line-height: 1.5;
+            padding: 0.5em 0;
+            border-bottom: 1px solid #666;
+            list-style-position: inside;
+            padding-left: 15px;
+            font-size: 25px;
+            display: flex;
+
+
+
+            div:nth-child(1){
+              width: 50%;
+              text-align: left;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              p {
+                float: left;
+                font-size: xx-large;
+                color: red;
+              }
+            }
+
+            div:nth-child(2){
+              width: 50%;
+              text-align: right;
+            }
+          }
+
+          .achieved {
+            background-color: rgba(#000, 0.5);
+          }
+        }
+      }
+
+      ::-webkit-scrollbar{
+        width: 5px;
+      }
+      ::-webkit-scrollbar-track{
+        background: #fff;
+        border: none;
+        border-radius: 10px;
+        box-shadow: inset 0 0 2px #777;
+      }
+      ::-webkit-scrollbar-thumb{
+        background: #ccc;
+        border-radius: 10px;
+        box-shadow: none;
+      }
+    }
+
+    .hidden_show {
+      height: 40%;
+    }
+
+    .edit, .add, .hidden_show {
+      width: 30%;
+      height: 300px;
+      padding: 0.5em 1em;
+      //margin: 2em 0;
+      color: #00BCD4;
+      background: #e4fcff;
+      border-top: solid 6px #1dc1d6;
+      box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+      z-index: 5;
+
+      ul {
+        display: block;
+
+        li {
+          list-style: none;
+          display: flex;
+          margin-bottom: 10px;
+
+          label {
+            // margin-right: 10px;
+            width:100px;
+            float: left;
+          }
+
+          textarea {
+            height: 50px;
+          }
+
+          .edit-label {
+            flex-grow: 3;
+          }
+
+          .edit-form {
+            flex-grow: 7;
+            width: 100%;
+          }
+
+          @keyframes sheen {
+            0% {
+              transform: skewY(-45deg) translateX(0);
+            }
+            100% {
+              transform: skewY(-45deg) translateX(12.5em);
+            }
+          }
+
+
+
+          .field_with_errors {
+            flex-grow: 1;
+          }
+        }
+      }
+    }
+
+    .task-calender {
+      z-index: 5;
+      width: 90%;
+
+      .table {
+        background: rgba(white, 0.8);
+
+        tbody {
+          tr {
+            height: 100%;
+
+            .day {
+
+              li {
+                list-style: none;
+              }
+            }
+          }
+        }
+      }
+
+
+    }
+
+
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+  }
+}
+.submit-block {
+  display: block;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.button {
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  color: $color;
+  border: 2px solid $color;
+  font-size: 12px;
+  display: inline-block;
+  border-radius: 0.3em;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  &:before {
+    content: "";
+    background-color: rgba(255,255,255,0.5);
+    height: 100%;
+    width: 3em;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -4.5em;
+    transform: skewX(-45deg) translateX(0);
+    transition: none;
+  }
+  &:hover {
+    background-color: $color;
+    color: #fff;
+    &:before {
+      transform: skewX(-45deg) translateX(13.5em);
+    transition: all 0.5s ease-in-out;
+    }
+  }
+}

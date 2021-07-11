@@ -1,0 +1,9 @@
+<div>
+  <h1>ニックネームを入力</h1>
+  <%= form_with model: @profile, local: true do |f| %>
+    <%= f.text_field :name %>
+    <div class="submit-block">
+      <%= f.submit class: "button" %>
+    </div>
+  <% end %>
+</div>
